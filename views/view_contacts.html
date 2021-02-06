@@ -1,0 +1,28 @@
+<div>
+        <script>
+            var droid = new Android();
+            
+            function handleRemove(number){
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open( "GET", f"/RemoveContact/{number}", false ); // false for synchronous request
+                xmlHttp.send();
+                console.log(xmlHttp.responseText);
+            }
+        </script>
+
+   
+
+        <h1 align='center'>Contacts</h1>
+        <form action="/">
+        	<button name="submit" type = "submit">home</button>
+        </form>
+        
+        <div align='center'>
+        	<ul>
+        		% for number in contacts:
+        			<li>{{name}} {{number}}</li>
+        			<button onclick="location.href = '/RemoveContact/{{number}}';"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+        		% end
+        	</ul>
+        </div>
+</div>
